@@ -1093,6 +1093,7 @@ a:hover {
 }
 .header__download__btn:hover {
   background: #5186ff;
+  color: #fff;
 }
 .header__nav-bar ul {
   list-style: none;
