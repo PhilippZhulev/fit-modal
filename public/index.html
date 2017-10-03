@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,user-scalable=yes">
+
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
+        <title>fit_modal | responsive + ajax modal window</title>
+        <link href="css/plugins.min.css" rel="stylesheet">
+        <link href="css/jquery.fit_modal.css" rel="stylesheet">
+        <link href="css/style.min.css" rel="stylesheet">
+
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <main>
+            <div class="events__block">
+                <span >Events</span>
+                <ul>
+                    <li class="onActive">fm.onActive</li>
+                    <li class="onWindow">fm.onWindow</li>
+                    <li class="onClose">fm.onClose</li>
+                    <li class="onCloseFrame">fm.onCloseFrame</li>
+                    <li class="onResponsive">fm.onResponsive</li>
+                    <li class="offResponsive">fm.offResponsive</li>
+                </ul>
+            </div>
+
+            <header class="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col xs-4">
+                            <div class="header__logo">
+                                <a href="/">fit Modal</a>
+                            </div>
+                        </div>
+                        <div class="col xs-4">
+                            <div class="header__download">
+                                <a href="jquery.fit_modal_1_12.zip" class="header__download__btn">Download</a>
+                            </div>
+                        </div>
+                        <div class="col xs-4">
+                            <nav class="header__nav-bar">
+                                <ul>
+                                    <li><a href="#description">Description</a></li>
+                                    <li><a href="#getStarted">Get started</a></li>
+                                    <li><a href="#api">API</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="top-block">
+                <div class="top-block__inner-bg"></div>
+                <div class="top-block__modal-view"></div>
+                <div class="top-block__modal-view"></div>
+                <div class="top-block__modal-view">
+                    <span>Hallo World!</span>
+                    <div class="top-block__eye eye__left"></div>
+                    <div class="top-block__eye eye__right"></div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col xs-12">
+                             <h1>Responsive jQuery modal window + ajax download content</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col xs-12">
+                               <h2>Demo</h2>
+                               <p class="desc">Click this button please!</p>
+                               <button class="btn__demo" data-content_block=".demo-modal__content" data-title="Demo modal" data-win-animation="fade_in_top">Click me!</button>
+                               <div class="demo-modal__content">
+
+                                   <div class="np-row">
+                                       <div class="col xs-12">
+                                            <p>
+                                                In user interface design for computer applications, a modal window is a graphical control element subordinate to an application's main window.
+                                                It creates a mode that disables the main window, but keeps it visible with the modal window as a child window in front of it. Users must interact with the modal window before they can return to the parent application. This avoids interrupting
+                                                the workflow on the main window. Modal windows are sometimes called heavy windows or modal dialogs because they often display a dialog box.
+                                            </p>
+                                       </div>
+                                   </div>
+
+                               </div>
+                               <hr />
+                        </div>
+                    </div>
+                    <div class="row" id="description">
+                        <div class="col xs-5">
+                            <h3 class="desc__text">Description</h3>
+                            <p class="desc__text">
+                                fit_modal - is an adaptive modal window for content that has a large amount of tinctures and the ability to download content via ajax.
+                            </p>
+                            <hr />
+                            <h3 class="desc__text">Benefits</h3>
+                            <ul class="content__list">
+                                <li>Simple html structure</li>
+                                <li>Three types of implementation in html</li>
+                                <li>31 option for full plug-in configuration</li>
+                                <li>6 events + 2 reverse events + custom functions</li>
+                                <li>Wide range of applications</li>
+                                <li>Multiple Animation Types</li>
+                                <li>Easy customization of ajax capabilities</li>
+                            </ul>
+                        </div>
+                        <div class="col xs-7">
+                            <div class="content__code__wrapper">
+                                <iframe width="100%" height="500" src="//jsfiddle.net/Philipp1918/c2eybd7d/6/embedded/html/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <br>
+                            <br>
+                            <a target="_blank" href="https://github.com/PhilippZhulev/fit_modal">
+                                <button class="btn__gitHub">More on github</button>
+                            </a>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row" id="getStarted">
+                        <div class="col xs-12">
+                            <h2 class="text__green">Get started</h2>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-4">
+                            <span><b class="text__blue">Connect:</b></span> <br>
+
+                            <span>jquery.fit_modal.css</span> <br>
+                            <span>jquery.fit_modal.js</span> <br>
+
+                            <b>or</b> <br>
+
+                            <span>jquery.fit_modal.min.css</span><br>
+                            <span>jquery.fit_modal.min.js</span> <br>
+                            <span>from the folder dist</span> <br><br>
+                            <span><b class="text__blue">Plugin requires:</b></span> <br>
+
+                            <span>normalize.css или reset.css</span><br>
+                            <span>jQuery 1.8.3+</span> <br>
+                        </div>
+                        <div class="col xs-8">
+                            <b class="code__title text__blue">Plugin initialization</b>
+                            <iframe width="100%" height="260" src="//jsfiddle.net/Philipp1918/ostto76m/1/embedded/js,html/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <br>
+                            <br>
+                            <h4>Without automatic generation</h4>
+                        </div>
+                        <div class="col xs-4">
+                            <span><b class="text__blue">Description:</b></span> <br>
+                            <span>This activation option allows you to run several types of content with different parameters in one modal window, which can be useful in some situations and significantly reduces the amount of html code on the page.</span>
+                            <button class="btn__demo_0" data-content_block=".content__wrap_1">Modal 1</button>
+                            <button class="btn__demo_0_1" data-content_block=".content__wrap_2">Modal 2</button>
+                            <br>
+                            <span>Using this implementation method, you can use only one type of animation for all events.</span>
+                            <div class="modal__frame">
+                                <div class="modal__window">
+                                    <div class="modal__window__header">
+                                        <div class="modal__window__close"></div>
+                                        <div class="modal__window__title"></div>
+                                    </div>
+                                    <div class="modal__window__body">
+                                        <div class="content__wrap_1">Hallo world!</div>
+                                        <div class="content__wrap_2">I'm alive!</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col xs-8">
+                            <iframe width="100%" height="450" src="//jsfiddle.net/Philipp1918/mwwzsrc3/2/embedded/html/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <br>
+                            <br>
+                            <h4>Ajax content download</h4>
+                        </div>
+                        <div class="col xs-4">
+                            <span><b class="text__blue">Description:</b></span> <br>
+                            <span>In this way, you can upload content via ajax</span>
+                            <button class="btn__demo_1" data-href="test.html">Demo</button>
+                            <div class="content__wrap_ajax"></div>
+                            <br>
+                            Download document: <a href="test.html">test.html</a>
+                        </div>
+                        <div class="col xs-8">
+                            <iframe width="100%" height="400" src="//jsfiddle.net/Philipp1918/uohLdb1y/embedded/js,html/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <br>
+                            <br>
+                            <h4>Responsive mod</h4>
+                        </div>
+                        <div class="col xs-4">
+                            <span><b class="text__blue">Description:</b></span> <br>
+                            <span>The media parameter specifies with which permission to run adaptivity (768px by default). 0 - Adaptivity is disabled. The remaining parameters are user-defined functions.</span>
+                            <button class="btn__demo_2" data-content_block=".demo-modal__content" data-title="Demo modal" data-win-animation="fade_in_top">Demo</button>
+                        </div>
+                        <div class="col xs-8">
+                            <iframe width="100%" height="250" src="//jsfiddle.net/Philipp1918/6fnhg3zt/5/embedded/js/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <br>
+                            <br>
+                            <h4>Fast styling</h4>
+                        </div>
+                        <div class="col xs-4">
+                            <span><b class="text__blue">Description:</b></span> <br>
+                            <ul class="content__list">
+                                <li>frame_style - Background Style</li>
+                                <li>window_style - Window Style</li>
+                            </ul>
+                            You can specify any css parameters.
+                            <button class="btn__demo_3" data-content_block=".demo-modal__color" data-title="Demo modal" data-win-animation="fade_in_down">Demo</button>
+                            <div class="demo-modal__color">So brighter?</div>
+                        </div>
+                        <div class="col xs-8">
+                            <iframe width="100%" height="300" src="//jsfiddle.net/Philipp1918/w83x3m8s/embedded/js/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="row" id="api">
+                        <div class="col xs-12">
+                            <hr />
+                            <br>
+                            <h2 class="text__green">Options and api</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <br>
+                            <h4>Attributes</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <table class="content__table">
+                                <tr>
+                                    <th>Attr</th>
+                                    <th>Description</th>
+                                </tr>
+                                <tr>
+                                    <td>data-title</td>
+                                    <td>Modal window title</td>
+                                </tr>
+                                <tr>
+                                    <td>data-win-animation</td>
+                                    <td>Window Animation Type</td>
+                                </tr>
+                                <tr>
+                                    <td>data-content_block</td>
+                                    <td>Content wrapper class</td>
+                                </tr>
+                                <tr>
+                                    <td>data-href</td>
+                                    <td>Link to page or server (ajax)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <br>
+                            <h4>Options</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <table class="content__table">
+                                <tr>
+                                    <th>Option</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
+                                <tr>
+                                    <td>modal_frame</td>
+                                    <td>String</td>
+                                    <td>.modal__frame</td>
+                                    <td>Class of the general <br> wrapper (background) <br>of the modal window</td>
+                                </tr>
+                                <tr>
+                                    <td>modal_window</td>
+                                    <td>String</td>
+                                    <td>.modal__window</td>
+                                    <td>Modal window class</td>
+                                </tr>
+                                <tr>
+                                    <td>modal_body</td>
+                                    <td>String</td>
+                                    <td>.modal__window__body</td>
+                                    <td>Modal window body class</td>
+                                </tr>
+                                <tr>
+                                    <td>modal_title_class</td>
+                                    <td>String</td>
+                                    <td>.modal__window__title</td>
+                                    <td>Modal window title class</td>
+                                </tr>
+                                <tr>
+                                    <td>modal_title</td>
+                                    <td>String</td>
+                                    <td>Modal window</td>
+                                    <td>Modal window title</td>
+                                </tr>
+                                <tr>
+                                    <td>modal_content_block</td>
+                                    <td>String</td>
+                                    <td>null</td>
+                                    <td>Content wrapper class</td>
+                                </tr>
+                                <tr>
+                                    <td>frame_animation_speed</td>
+                                    <td>Number</td>
+                                    <td>300</td>
+                                    <td>Background animation speed</td>
+                                </tr>
+                                <tr>
+                                    <td>win_animation_speed</td>
+                                    <td>Number</td>
+                                    <td>500</td>
+                                    <td>Window animation speed</td>
+                                </tr>
+                                <tr>
+                                    <td>window_animation_type</td>
+                                    <td>String</td>
+                                    <td>fade_in_top</td>
+                                    <td>Window Animation Type</td>
+                                </tr>
+                                <tr>
+                                    <td>modal_close</td>
+                                    <td>String</td>
+                                    <td>.modal__window__close</td>
+                                    <td>Closure button class</td>
+                                </tr>
+                                <tr>
+                                    <td>fast_create</td>
+                                    <td>Boolean</td>
+                                    <td>true</td>
+                                    <td>Generate modal window <br> and wrap the content with it</td>
+                                </tr>
+                                <tr>
+                                    <td>active_custom_func</td>
+                                    <td>Object</td>
+                                    <td>null</td>
+                                    <td>The user-defined function<br>  is activated when<br>  the window is turned on</td>
+                                </tr>
+                                <tr>
+                                    <td>close_custom_func</td>
+                                    <td>Object</td>
+                                    <td>null</td>
+                                    <td>The user-defined function<br> is activated when <br>the window is closed</td>
+                                </tr>
+                                <tr>
+                                    <td>window_style</td>
+                                    <td>Array</td>
+                                    <td>{}</td>
+                                    <td>Quickly set window styles</td>
+                                </tr>
+                                <tr>
+                                    <td>frame_style</td>
+                                    <td>Array</td>
+                                    <td>{}</td>
+                                    <td>Quickly set background styles</td>
+                                </tr>
+                                <tr>
+                                    <td>on_ajax_mod</td>
+                                    <td>Boolean</td>
+                                    <td>false</td>
+                                    <td>Enable Ajax Mod <br>(Download external content)</td>
+                                </tr>
+                                <tr>
+                                    <td>ajax_mod</td>
+                                    <td>Array</td>
+                                    <td>{options}</td>
+                                    <td>Ajax options</td>
+                                </tr>
+                                <tr>
+                                    <td>close_on_bg</td>
+                                    <td>Boolean</td>
+                                    <td>true</td>
+                                    <td>Close window by clicking on background</td>
+                                </tr>
+                                <tr>
+                                    <td>responsive_mod</td>
+                                    <td>Array</td>
+                                    <td>{options}</td>
+                                    <td>Adaptive Settings</td>
+                                </tr>
+                                <tr>
+                                    <td>fix_fw_el</td>
+                                    <td>String</td>
+                                    <td>null</td>
+                                    <td>Fixes bouncing fixed and absolute elements with 100%
+                                        <br>width (you need to add an element class)</td>
+                                </tr>
+                                <tr>
+                                    <td>fix_right_el</td>
+                                    <td>String</td>
+                                    <td>null</td>
+                                    <td>Correction of fixed and absolute <br>elements with right positioning
+                                        <br> (you need to add an element class)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <br>
+                            <h4>ajax_mod</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <table class="content__table">
+                                <tr>
+                                    <th>Option</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
+                                <tr>
+                                    <td>href</td>
+                                    <td>String</td>
+                                    <td>null</td>
+                                    <td>Link to page or server</td>
+                                </tr>
+                                <tr>
+                                    <td>post_type</td>
+                                    <td>'GET'</td>
+                                    <td>.modal__window</td>
+                                    <td>Request Type</td>
+                                </tr>
+                                <tr>
+                                    <td>data</td>
+                                    <td>Array</td>
+                                    <td>null</td>
+                                    <td>What should I transfer to the server</td>
+                                </tr>
+                                <tr>
+                                    <td>error_message</td>
+                                    <td>String</td>
+                                    <td>Server error or<br>  page not found.</td>
+                                    <td>Error message</td>
+                                </tr>
+                                <tr>
+                                    <td>success_custom_func</td>
+                                    <td>Object</td>
+                                    <td>null</td>
+                                    <td>Function on successful sending</td>
+                                </tr>
+                                <tr>
+                                    <td>error_custom_func</td>
+                                    <td>Object</td>
+                                    <td>null</td>
+                                    <td>Function on error</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <br>
+                            <h4>responsive_mod</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <table class="content__table">
+                                <tr>
+                                    <th>Option</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
+                                <tr>
+                                    <td>media</td>
+                                    <td>Number</td>
+                                    <td>0</td>
+                                    <td>Resolution below which includes adaptivity</td>
+                                </tr>
+                                <tr>
+                                    <td>on_custom</td>
+                                    <td>Object</td>
+                                    <td>null</td>
+                                    <td>Function when enabling adaptability</td>
+                                </tr>
+                                <tr>
+                                    <td>off_custom</td>
+                                    <td>Object</td>
+                                    <td>null</td>
+                                    <td>Function when the adaptivity is turned off</td>
+                                </tr>
+                                <tr>
+                                    <td>custom_fun</td>
+                                    <td>Object</td>
+                                    <td>null</td>
+                                    <td>Function when changing the resolution</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-8">
+                            <br>
+                            <h4>Events</h4>
+                            <ul class="content__list">
+                                <li>fm.onActive - When the modal window is activated</li>
+                                <li>fm.onWindow - When the content area of the modal window appears</li>
+                                <li>fm.onClose - When the modal window is closed</li>
+                                <li>fm.onCloseFrame - When the modal window is completely closed</li>
+                                <li>fm.onResponsive - When adaptivity is enabled</li>
+                                <li>fm.offResponsive - When the adaptivity is turned off</li>
+                            </ul>
+                        </div>
+                        <div class="col xs-4">
+                            <br>
+                            <h4>Animations</h4>
+                            <ul class="content__list">
+                                <li>fade_in</li>
+                                <li>fade_in_top</li>
+                                <li>fade_in_down</li>
+                                <li>fade_in_left</li>
+                                <li>fade_in_right</li>
+                                <li>zoom_in</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <hr />
+                        <br>
+                        <div class="col xs-4">
+                            <span><b class="text__blue">Description:</b></span> <br>
+                            <span>demonstration of the event</span> <br>
+                            <button class="btn__demo_4" data-content_block=".demo-modal__event" data-title="Look" data-win-animation="fade_in_down">Demo</button>
+                            <div class="demo-modal__event">Look at the console!</div>
+                        </div>
+                        <div class="col xs-8">
+                            <iframe width="100%" height="300" src="//jsfiddle.net/Philipp1918/jys9acL0/1/embedded/js/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <hr />
+                        <div class="col xs-12">
+                            <h4>Custom function and reverse event</h4>
+                        </div>
+                        <div class="col xs-4">
+                            <span><b class="text__blue">Description:</b></span> <br>
+                            <span>Write something and press enter</span> <br>
+                            <form action="" class="test__form">
+                                <input type="text" class="test__input">
+                            </form>
+                            <div class="no_elm"></div>
+                            <div class="demo-modal__us-func"></div>
+                            <br>
+                            <span><b class="text__blue">Reverse event:</b></span> <br>
+                            <ul class="content__list">
+                                <li>on.modal.active - window activation</li>
+                                <li>on.modal.close - closing window</li>
+                            </ul>
+                        </div>
+                        <div class="col xs-8">
+                            <iframe width="100%" height="450" src="//jsfiddle.net/Philipp1918/80twt0nL/5/embedded/js,html/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <hr />
+                            <h2 class="text__green">License</h2>
+                            <a href="" class="license__link content__text-center" data-content_block=".license__modal" data-title="MIT License" data-win-animation="fade_in_down">MIT License.</a>
+                            <div class="license__modal">
+                                <p>
+                                    <b>Copyright (c) 2017 Philipp Zhulev</b>
+                                </p>
+                                </p>
+                                    Permission is hereby granted, free of charge, to any person
+                                    obtaining a copy of this software and associated documentation
+                                    files (the "Software"), to deal in the Software without
+                                    restriction, including without limitation the rights to use,
+                                    copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                    copies of the Software, and to permit persons to whom the
+                                    Software is furnished to do so, subject to the following
+                                    conditions:
+                                </p>
+                                <p>
+                                    The above copyright notice and this permission notice shall be
+                                    included in all copies or substantial portions of the Software.
+                                </p>
+                                <p>
+                                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+                                    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+                                    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+                                    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+                                    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+                                    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+                                    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+                                    OTHER DEALINGS IN THE SOFTWARE.
+                                </p>
+                            </div>
+                            <br>
+                            <a href="jquery.fit_modal_1_12.zip" >
+                                <button class="btn__download-bottom">Download v1.12</button>
+                            </a>
+                            <br>
+                            <span class="content__text-center">Created by Philipp Zhulev</span>
+                            <span class="content__text-center"><b>Filippja@gmail.com</b>    </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col xs-12">
+                           <span class="content__text-center footer__dev">All rights © 2017</span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+        <script src="js/jquery.js"></script>
+        <script src="js/plugins.min.js"></script>
+        <script src="js/jquery.fit_modal.js"></script>
+        <script src="js/scripts.min.js"></script>
+        <script>
+            $(window).ready(function () {
+                $('.btn__demo').fit_modal({
+                    fix_fw_el : '.header',
+                    fix_right_el : '.events__block',
+                    responsive_mod : {
+                        media : 1024
+                    }
+                });
+
+                $('.btn__demo_0').fit_modal({
+                    fast_create : false,
+                    window_animation_type   : 'zoom_in',
+                    frame_animation_speed   :  300,
+                    modal_title  :  'Modal 1!',
+                    fix_fw_el : '.header',
+                    fix_right_el : '.events__block'
+                });
+
+                $('.btn__demo_0_1').fit_modal({
+                    fast_create : false,
+                    modal_title  :  "Modal 2!",
+                    fix_fw_el : '.header',
+                    fix_right_el : '.events__block'
+                });
+
+                $('.btn__demo_1').fit_modal({
+                    on_ajax_mod  :  true,
+                    modal_content_block : '.content__wrap_ajax',
+                    modal_title : 'View document',
+                    window_animation_type  : 'fade_in_top',
+                    fix_fw_el : '.header',
+                    fix_right_el : '.events__block'
+                });
+
+                $('.btn__demo_2').fit_modal({
+                    fix_fw_el : '.header',
+                    fix_right_el : '.events__block',
+                    responsive_mod : {
+                        media : 1024
+                    }
+                });
+
+                $('.btn__demo_3').fit_modal({
+                    fix_fw_el : '.header',
+                    fix_right_el : '.events__block',
+                    window_style : {
+                        "borderRadius" :  "15px",
+                        "background" : "rgba(255, 255, 0, 0.88)"
+                    },
+                    frame_style : {
+                        "background" : "rgba(110, 117, 142, 0.5)"
+                    },
+                });
+                var this_modal = $('.btn__demo_4').fit_modal({
+                    fix_fw_el : '.header',
+                    fix_right_el : '.events__block',
+                });
+
+                this_modal.on('fm.on.active', function() {
+                    console.log('wow!')
+                });
+
+                var user_modal = $('.no_elm').fit_modal({
+                    modal_content_block : '.demo-modal__us-func',
+                    modal_title : 'User modal',
+                    window_animation_type  : 'fade_in_top',
+                    fix_fw_el : '.header, .events__block',
+                    fix_right_el : '.events__block',
+                    active_custom_func : function (el, id) {
+                        $(this.modal_title_class).html(this.modal_title + ' - ' + id.slice(1));
+                        $(this.modal_content_block).html($('.test__input').val());
+                    }
+                });
+
+                $('.test__form').submit(function (e) {
+                    e.preventDefault();
+                    user_modal.trigger('on.modal.active');
+                });
+
+                $('.license__link').fit_modal({
+                    fix_fw_el : '.header',
+                    fix_right_el : '.events__block',
+                    responsive_mod : {
+                        media : 1024
+                    }
+                });
+
+                $('button, a, .no_elm').on('fm.onActive fm.onWindow fm.onClose fm.onCloseFrame fm.onResponsive fm.offResponsive', function (evt) {
+                    $('.' + evt.namespace).addClass('active');
+                    setTimeout(function () {
+                        $('.' + evt.namespace).removeClass('active');
+                    }, 700)
+                });
+            });
+        </script>
+    </body>
+</html>
