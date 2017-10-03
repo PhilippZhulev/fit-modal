@@ -1,0 +1,213 @@
+//******************************************
+//***** STYLUS VARIABLES END FUNCTIONS *****
+//******************************************
+
+
+//primary font size
+bf = 16;
+
+//site colors
+hue = inherit red green blue
+
+//placeholder
+
+place_i = 0;
+
+
+fluid_img()
+  >img
+    max-width 100%
+    display block
+
+clear__fix()
+  &:after,
+  &:before
+    content ""
+    display table
+  &:after
+    clear both
+bgc(color)
+  background color
+bgs(size)
+  background-size size
+bga(att)
+  background-attachment att
+bgp(pos)
+  background-attachment pos
+bg_color(color, img)
+  background color url(img) center no-repeat
+bg(img)
+  background url(img) center no-repeat
+bg_options(img, options...)
+  background url(img) options
+bg_c_opt(color, img, options...)
+  background color url(img) options
+bg_c_s_opt(color, img, size, options...)
+  background color url(img) options
+  background-size size
+
+box-size(args...)
+  box-sizing args;
+  -moz-box-sizing args;
+  -webkit-box-sizing args;
+
+placeholder(args...)
+  place_function()
+    for $i in 1.. length(args) / 2
+      place_i += 2
+      {args[(place_i - 2)]} args[(place_i - 1)]
+  &::-webkit-input-placeholder
+    place_function()
+  &::-moz-placeholder
+    place_function()
+  &:-moz-placeholder
+    place_function()
+  &:-ms-input-placeholder
+    place_function()
+
+
+//object to center
+obj-center(w, h)
+  width w
+  height h
+  top 0
+  bottom 0
+  left 0
+  right 0;
+  margin auto
+  position absolute
+
+//transition
+animate(val, timeng)
+  transition all (val)ms timeng
+  -webkit-transition all (val)ms timeng
+  -moz-transition all (val)ms timeng
+  -o-transition all (val)ms timeng
+
+//box-shadow
+shadow(args...)
+  -webkit-box-shadow args
+  -moz-box-shadow args
+  box-shadow args
+
+//border-radius
+radius()
+  border-radius arguments
+  -webkit-border-radius arguments
+  -moz-border-radius arguments
+
+//tansform translateX
+t-translateX()
+  transform translateX(arguments)
+  -webkit-transform translateX(arguments)
+  -moz-transform translateX(arguments)
+  -o-transform translateX(arguments)
+
+//tansform translateY
+t-translateY()
+  transform translateY(arguments)
+  -webkit-transform translateY(arguments)
+  -moz-transform translateY(arguments)
+  -o-transform translateY(arguments)
+
+//tansform rotate
+t-rotate()
+  transform rotate((arguments)deg)
+  -webkit-transform rotate((arguments)deg)
+  -moz-transform rotate((arguments)deg)
+  -o-transform rotate((arguments)deg)
+
+//tansform scale
+t-scale()
+  transform scale(arguments)
+  -webkit-transform scale(arguments)
+  -moz-transform scale(arguments)
+  -o-transform scale(arguments)
+
+//font-size to em
+fs-em()
+  font-size (arguments / bf)em
+
+//width to em
+w-em()
+  width (arguments / bf)em
+
+//height to em
+h-em()
+  height (arguments / bf)em
+//max-width to em
+max-w-em()
+  width (arguments / bf)em
+
+//max-height to em
+max-h-em()
+  height (arguments / bf)em
+//min-width to em
+min-w-em()
+  width (arguments / bf)em
+
+//min-eight to em
+min-h-em()
+  height (arguments / bf)em
+//margin-top to em
+m-top-em()
+  margin-top (arguments / bf)em
+
+//margin-bottom to em
+m-bottom-em()
+  margin-bottom (arguments / bf)em
+
+//margin-left to em
+m-left-em()
+  margin-left (arguments / bf)em
+
+//margin-right to em
+m-right-em()
+  margin-right (arguments / bf)em
+//margin to em
+m-em(param_1, param_2, param_3, param_4)
+  margin (param_1 / bf)em (param_2 / bf)em (param_3 / bf) (param_4 / bf)em
+//padding-top to em
+p-top-em()
+  padding-top (arguments / bf)em
+
+//padding-bottom to em
+p-bottom-em()
+  padding-bottom (arguments / bf)em
+
+//padding-left to em
+p-left-em()
+  padding-left (arguments / bf)em
+
+//padding-right to em
+p-right-em()
+  padding-right (arguments / bf)em
+
+//padding to em
+p-em(param_1, param_2, param_3, param_4)
+  padding (param_1 / bf)em (param_2 / bf)em (param_3 / bf) (param_4 / bf)em
+
+//top to em
+top-em()
+  top (arguments / bf)
+
+//bottom to em
+bottom-em()
+  bottom (arguments / bf)
+
+//left to em
+left-em()
+  left (arguments / bf)
+
+//right to em
+right-em()
+  right (arguments / bf)
+
+//shadow to em
+shadow-em(offset-x, offset-y, blur, args...)
+    -webkit-box-shadow (offset-x / bf)em (offset-y / bf)em (blur / bf)em args
+    -moz-box-shadow (offset-x / bf)em (offset-y / bf)em (blur / bf)em args
+    box-shadow (offset-x / bf)em (offset-y / bf)em (blur / bf)em args
+
+
+//fluid grid elements

@@ -1,0 +1,111 @@
+/*************************
+ Jquery fit_modal plugin
+ Version: 1.12.0,
+ Developer: Philipp Zhulev,
+ License: MIT License (MIT),
+ Release date: 01.10.2017
+ **************************/
+
+html.fit_modal_open
+    overflow hidden
+.scroll-bar__measure
+    width 100px
+    height 100px
+    overflow scroll
+    position absolute
+    top -9999px
+
+fadeOn()
+    visibility visible
+    opacity 1
+fadeOff()
+    visibility hidden
+    opacity 0
+
+
+.modal__
+    &frame
+        position fixed
+        overflow-y scroll
+        width 100%
+        height 100%
+        background rgba(0,0,0,0.5)
+        z-index 9999
+        top 0
+        left 0
+        visibility hidden
+        opacity 0
+    &frame
+        &.fit_modal_open
+            fadeOn()
+    &window
+        background #fff
+        width 770px
+        position relative
+        padding 50px 70px
+        box-shadow 0 13px 18px 1px rgba(0,0,0,0.24)
+        min-height 300px
+        margin 5% auto 40px auto
+        &.fit_fade_in
+            fadeOff()
+            &.fit_modal_open
+                fadeOn()
+        &.fit_fade_in_top
+            fadeOff()
+            t-translateY -100%
+            &.fit_modal_open
+                fadeOn()
+                t-translateY 0
+        &.fit_fade_in_down
+            fadeOff()
+            t-translateY 100%
+            &.fit_modal_open
+                visibility visible
+                opacity 1
+                t-translateY 0
+        &.fit_fade_in_down
+            fadeOff()
+            t-translateY 100%
+            &.fit_modal_open
+                fadeOn()
+                t-translateY 0
+        &.fit_fade_in_left
+            fadeOff()
+            t-translateX -100%
+            &.fit_modal_open
+                fadeOn()
+                t-translateX 0
+        &.fit_fade_in_right
+            fadeOff()
+            t-translateX 100%
+            &.fit_modal_open
+                fadeOn()
+                t-translateX 0
+        &.fit_zoom_in
+            t-scale 0
+            &.fit_modal_open
+                t-scale 1
+        &__header
+            border-bottom 1px solid #ccd2db
+            padding-bottom 30px
+            padding-top 17px
+        &__title
+            font-size 36px
+            color #42464a
+            font-weight 500
+            line-height 29px
+        &__body
+            margin-top 25px
+        &__close
+            bg_color transparent "modal__window__close-ico.png"
+            width 24px
+            height 24px
+            position absolute
+            top 20px
+            right 30px
+            cursor pointer
+            border 0
+    &responsive
+        width 100%
+        min-height 100%
+        margin 0 auto
