@@ -53,7 +53,7 @@ _
 <button class="btn__active-modal" 
     data-title="Feedback form" 
     data-win-animation="fade_in_top" 
-    data-content_block=".content__wrap_2">
+    data-content_block=".content__wrap">
     Open modal
 </button>
 
