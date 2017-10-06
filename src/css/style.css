@@ -1328,7 +1328,7 @@ h2.text__green {
   -o-transition: all 300ms ease-in-out;
   margin: 0 auto;
   display: block;
-  width: 190px;
+  width: 200px;
   border-bottom: 4px solid #2696d4;
 }
 .btn__demo:hover,
@@ -1344,7 +1344,7 @@ h2.text__green {
   border-bottom: 2px solid #4467ce;
 }
 .btn__gitHub {
-  width: 260px;
+  width: 280px;
 }
 .btn__download-bottom {
   width: 300px;
