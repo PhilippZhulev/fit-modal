@@ -29,6 +29,11 @@ _
 
 #### Быстрый старт:
 
+**Node package manager:**
+```javascript
+npm install fit_modal
+```
+
 #####Подключаем:
 
 + jquery.fit_modal.css
