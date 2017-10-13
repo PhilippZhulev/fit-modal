@@ -1,10 +1,10 @@
 {
   "name": "fit_modal",
   "description": "responsive + ajax content modal window.",
-  "version": "1.12.5",
+  "version": "1.12.6",
   "homepage": "https://philippzhulev.github.io/fitmodal/",
-  "main": "./dist/jquery.fit_modal.js",
-  "style": "./dist/jquery.fit_modal.css",
+  "main": "dist/jquery.fit_modal.js",
+  "style": "dist/jquery.fit_modal.css",
   "author": {
     "name": "Philipp Zhulev",
     "email": "Filippja@gmail.com"
@@ -12,7 +12,7 @@
   "license": "MIT License (MIT)",
   "repository": {
     "type": "git",
-    "url": "git:https://github.com/PhilippZhulev/fit_modal"
+    "url": "https://github.com/PhilippZhulev/fit_modal"
   },
   "dependencies": {
     "jquery": ">=1.8.3"
@@ -21,7 +21,8 @@
     "jQuery",
     "jquery-plugin",
     "responsive",
-    "modal window",
+    "modal",
+	"popup",
     "ajax",
     "plugin"
   ],
