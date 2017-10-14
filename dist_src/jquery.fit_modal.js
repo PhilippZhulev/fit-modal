@@ -42,8 +42,9 @@
                 off_custom : null, //user function
                 custom_func : null //user function
             },
-            fix_fw_el : null,
-            fix_right_el : null
+            fix_fw_el    : null, //fixed element
+            fix_right_el : null, //fixed element
+            set_blur     : null //Blur
         }, options);
 
         /* plugin body */
@@ -72,11 +73,23 @@
                 options.modal_content_block = this_attr_content;
             }
 
+            /* id match check  */
             var $content = $(options.modal_content_block);
+
+            var data_index = $content.attr('data-index');
+
+            if(data_index === undefined) {
+                $content.attr('data-index', _sl(index_class));
+            }
 
             /* take ID modal frame and window */
             function set_id (e) {
-                return $content.parents(e).addClass(_sl(index_class));
+                if($content.parents(e).length < 1){
+                    return $content.parents(e).addClass(_sl(index_class));
+                }else {
+                    index_class = '.' + data_index;
+                    return $content.parents(e).addClass(_sl(index_class));
+                }
             }
             set_id(options.modal_frame);
             set_id(options.modal_window);
@@ -118,8 +131,23 @@
                 $(obj).css('transition', 'all ' + animated  + 'ms');
             }
 
-            /* consider attribute the type of content */
+            /* blur function */
+            function set_blur (value) {
+                var _blur = options.set_blur,
+                    $blur = $(_blur);
+                if(_blur !== null) {
+                    if(value === 1 && value !== 'init') {
+                        $blur.css('transition', 'all ' + options.frame_animation_speed  + 'ms');
+                        return $blur.addClass('fit__blur');
+                    }else {
+                        $blur.removeAttr('style');
+                        return $blur.removeClass('fit__blur');
+                    }
+                }
+            }
+            set_blur('init');
 
+            /* consider attribute the type of content */
             function _replace(e) {
                 return _sl(e).replace('.', ' ');
             }
@@ -177,6 +205,8 @@
             $this.on('click on.modal.active', function (ev) {
                 ev.preventDefault();
                 hide_child();
+
+                set_blur (1);
 
                 /* need to simulate scroll bar? */
                 if(parent_html.height() <= $(window).height()) {
@@ -298,6 +328,7 @@
                     remove_target (options.modal_frame, 'fit_modal_open');
                     parent_html.removeClass('fit_modal_open').removeAttr('style');
                     $(options.fix_fw_el + ',' + options.fix_right_el).removeAttr('style');
+                    set_blur (0);
                     clearTimeout (_clear);
 
                     $this.trigger('fm.onCloseFrame'); //event

@@ -169,3 +169,8 @@ html.fit_modal_open {
   min-height: 100%;
   margin: 0 auto;
 }
+.fit__blur {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+}

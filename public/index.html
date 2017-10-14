@@ -21,19 +21,18 @@
 
     </head>
     <body>
+        <div class="events__block">
+            <span >Events</span>
+            <ul>
+                <li class="onActive">fm.onActive</li>
+                <li class="onWindow">fm.onWindow</li>
+                <li class="onClose">fm.onClose</li>
+                <li class="onCloseFrame">fm.onCloseFrame</li>
+                <li class="onResponsive">fm.onResponsive</li>
+                <li class="offResponsive">fm.offResponsive</li>
+            </ul>
+        </div>
         <main>
-            <div class="events__block">
-                <span >Events</span>
-                <ul>
-                    <li class="onActive">fm.onActive</li>
-                    <li class="onWindow">fm.onWindow</li>
-                    <li class="onClose">fm.onClose</li>
-                    <li class="onCloseFrame">fm.onCloseFrame</li>
-                    <li class="onResponsive">fm.onResponsive</li>
-                    <li class="offResponsive">fm.offResponsive</li>
-                </ul>
-            </div>
-
             <header class="header">
                 <div class="container">
                     <div class="row">
@@ -83,19 +82,6 @@
                                <h2>Demo</h2>
                                <p class="desc">Click this button please!</p>
                                <button class="btn__demo" data-content_block=".demo-modal__content" data-title="Demo modal" data-win-animation="fade_in_top">Click me!</button>
-                               <div class="demo-modal__content">
-
-                                   <div class="np-row">
-                                       <div class="col xs-12">
-                                            <p>
-                                                In user interface design for computer applications, a modal window is a graphical control element subordinate to an application's main window.
-                                                It creates a mode that disables the main window, but keeps it visible with the modal window as a child window in front of it. Users must interact with the modal window before they can return to the parent application. This avoids interrupting
-                                                the workflow on the main window. Modal windows are sometimes called heavy windows or modal dialogs because they often display a dialog box.
-                                            </p>
-                                       </div>
-                                   </div>
-
-                               </div>
                                <hr />
                         </div>
                     </div>
@@ -110,7 +96,7 @@
                             <ul class="content__list">
                                 <li>Simple html structure</li>
                                 <li>Three types of implementation in html</li>
-                                <li>32 options for full plug-in configuration</li>
+                                <li>33 options for full plug-in configuration</li>
                                 <li>6 events + 2 reverse events + custom functions</li>
                                 <li>Wide range of applications</li>
                                 <li>Multiple Animation Types</li>
@@ -433,6 +419,12 @@
                                     <td>Correction of fixed and absolute <br>elements with right positioning
                                         <br> (you need to add an element class)</td>
                                 </tr>
+                                <tr>
+                                    <td>set_blur</td>
+                                    <td>String</td>
+                                    <td>null</td>
+                                    <td>blur background elements</td>
+                                </tr>
                             </table>
                         </div>
                     </div>
@@ -650,6 +642,19 @@
                 </div>
             </footer>
         </main>
+        <div class="demo-modal__content">
+
+            <div class="np-row">
+                <div class="col xs-12">
+                    <p>
+                        In user interface design for computer applications, a modal window is a graphical control element subordinate to an application's main window.
+                        It creates a mode that disables the main window, but keeps it visible with the modal window as a child window in front of it. Users must interact with the modal window before they can return to the parent application. This avoids interrupting
+                        the workflow on the main window. Modal windows are sometimes called heavy windows or modal dialogs because they often display a dialog box.
+                    </p>
+                </div>
+            </div>
+
+        </div>
         <script src="js/jquery.js"></script>
         <script src="js/plugins.min.js"></script>
         <script src="js/jquery.fit_modal.js"></script>
@@ -661,7 +666,8 @@
                     fix_right_el : '.events__block',
                     responsive_mod : {
                         media : 1024
-                    }
+                    },
+                    set_blur : 'main'
                 });
 
                 $('.btn__demo_0').fit_modal({
