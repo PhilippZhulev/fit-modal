@@ -17,8 +17,8 @@
             modal_title_class       :  '.modal__window__title', //modal title class
             modal_title             :  'Modal window', //modal title text
             modal_content_block     :  null, //modal content block
-            frame_animation_speed   :  300, //frame animation time
-            win_animation_speed     :  300, //window animation time
+            frame_animation_speed   :  200, //frame animation time
+            win_animation_speed     :  500, //window animation time
             window_animation_type   : 'fade_in_top', //window animation type
             modal_close             : '.modal__window__close', //class buttons close
             fast_create             : true, //generate modal window elements
