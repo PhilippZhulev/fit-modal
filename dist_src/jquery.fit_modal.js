@@ -52,7 +52,8 @@
         var include = function(){
 
             /* this object */
-            var $this = $(this);
+            var $this = $(this),
+                contClass = 'modal__content';
 
             var this_attr_content = $this.attr('data-content_block');
 
@@ -73,10 +74,13 @@
 
             var $content = $(options.modal_content_block);
 
+            $content.addClass(contClass);
+
             /* element data  */
             var fm = $.data($this, 'fit_modal', {
-                idClass: '.fm_' + generate_id(135,1235000), //modal ID
-                allContent: $content.parent().children(),
+                idClass: '.fm_' + generate_id(135,72354000), //modal ID
+                contentClass: contClass,
+                allContent: $content.parent().find('.' + contClass),
                 attrIndex: 'data-index',
                 blurClass: 'fit__blur',
                 activeClass: 'fit_modal_open',
@@ -84,19 +88,18 @@
             });
 
             /* id match check  */
-            var data_index = $content.attr(fm.attrIndex);
+            var data_index = fm.allContent.attr(fm.attrIndex);
 
             if(data_index === undefined) {
                 fm.allContent.attr(fm.attrIndex, _sl(fm.idClass));
             }
 
             /* take ID modal frame and window */
-            function set_id (e) {
-                if($content.parents(e).length > 0){
+            function set_id (c) {
+                if($content.parents(c).length > 0){
                     fm.idClass = '.' + fm.allContent.first().attr(fm.attrIndex);
                 }
-
-                return $content.parents(e).addClass(_sl(fm.idClass));
+                return $content.parents(c).addClass(_sl(fm.idClass));
             }
 
             set_id(options.modal_frame);
@@ -136,7 +139,7 @@
 
             /* animation for element */
             function modal_transition(obj, animated) {
-                $(fm.idClass).css('transition', 'all ' + animated  + 'ms');
+                obj.filter(fm.idClass).css('transition', 'all ' + animated  + 'ms');
             }
 
             /* blur function */
@@ -185,19 +188,26 @@
             /* hide modal content */
             hide_child();
 
-            /* where get animation? */
-            if(!this_win_animated) {
-                add_target (options.modal_window, 'fit_' + options.window_animation_type);
-            }else {
-                add_target (options.modal_window, 'fit_' + this_win_animated);
-            }
-
             /* Vars init */
             var this_frame = $(options.modal_frame),
                 this_window = $(options.modal_window),
                 this_attr_title = $this.attr('data-title'),
                 this_title =  $(options.modal_title_class),
                 parent_html = $('html');
+
+
+            /* where get animation? */
+            if(this_win_animated !== undefined) {
+                options.window_animation_type = this_win_animated;
+            }
+
+            var animate_class = 'fit_' + options.window_animation_type;
+
+            /* 1.Checking for the presence of an animation class.
+               2.It "0" then adds */
+            if(this_window.filter(fm.idClass).attr('class').indexOf("fit_") + 1 === 0) {
+                add_target (options.modal_window, animate_class);
+            }
 
             /* frame user inline styles */
             this_frame.css(
