@@ -20,13 +20,13 @@ module.exports = function(grunt) {
             my_target_0: {
                 files: {
                     'dist/jquery.fit_modal.js': ['dist_src/*.js'],
-                    'public/js/jquery.fit_modal.js': ['dist_src/*.js']
+                    'docs/js/jquery.fit_modal.js': ['dist_src/*.js']
                 }
             },
             my_target_1: {
                 files: {
                     'dist/jquery.fit_modal.css': ['dist_src/*.css'],
-                    'public/css/jquery.fit_modal.css': ['dist_src/*.css']
+                    'docs/css/jquery.fit_modal.css': ['dist_src/*.css']
                 }
             },
             my_target_2: {
@@ -38,12 +38,12 @@ module.exports = function(grunt) {
         uglify: {
             my_target_0: {
                 files: {
-                    'public/js/scripts.min.js': ['src/components/*/*/*.js', 'src/components/*/*.js']
+                    'docs/js/scripts.min.js': ['src/components/*/*/*.js', 'src/components/*/*.js']
                 }
             },
             my_target_1: {
                 files: {
-                    'public/js/plugins.min.js': ['src/plugins/*.js']
+                    'docs/js/plugins.min.js': ['src/plugins/*.js']
                 }
             },
             my_target_2: {
@@ -66,13 +66,13 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src/css',
                     src: ['*.css', '!*.min.css', '!stylus.css'],
-                    dest: 'public/css',
+                    dest: 'docs/css',
                     ext: '.min.css'
                 }]
             },
             target_3: {
                 files: {
-                  'public/css/plugins.min.css': 'src/plugins/*.css'
+                  'docs/css/plugins.min.css': 'src/plugins/*.css'
                 }
             },
             target_4: {
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src/components/',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'public/img/'
+                    dest: 'docs/img/'
                 }]
             },
             dist: {
@@ -108,23 +108,23 @@ module.exports = function(grunt) {
             },
         },
         watch: {
-            // files: ['src/js/*.js', 'src/css/*.css', 'public/*.html'],
+            // files: ['src/js/*.js', 'src/css/*.css', 'docs/*.html'],
             // tasks: ['cssmin', 'uglify', 'imagemin', 'browserSync']
             //no stylus watcher
-            files: ['src/components/*/*/*.js', 'dist_src/*.styl', 'dist_src/*.js', 'dist_src/*.css', 'src/components/*/*/*.styl', 'src/components/*/*.js', 'src/components/*/*.styl', 'public/*.html'],
+            files: ['src/components/*/*/*.js', 'dist_src/*.styl', 'dist_src/*.js', 'dist_src/*.css', 'src/components/*/*/*.styl', 'src/components/*/*.js', 'src/components/*/*.styl', 'docs/*.html'],
             tasks: ['stylus', 'concat', 'cssmin', 'uglify', 'browserSync']
         },
         browserSync: {
             bsFiles: {
                 src: [
-                    'public/css/*',
-                    'public/*.html',
-                    'public/js/*.js'
+                    'docs/css/*',
+                    'docs/*.html',
+                    'docs/js/*.js'
                 ]
             },
             options: {
                 watchTask: true,
-                server: './public'
+                server: './docs'
             }
         }
     });
