@@ -287,9 +287,9 @@ custom_fun            | null                   | Функция при смен�
 #### Пользовательская функция
 ```javascript
      $('element').fit_modal({
-        active_custom_func : function (el, id) {
+        active_custom_func : function (el, fm) {
             console.log(el);
-            $(this.modal_content_block).html('ID your modal window' + id.slice(1));
+            $(this.modal_content_block).html('ID your modal window' + fm.idClass.slice(1));
         }
      });
 ```
