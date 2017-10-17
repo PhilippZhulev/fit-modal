@@ -18,10 +18,11 @@
             modal_title             :  'Modal window', //modal title text
             modal_content_block     :  null, //modal content block
             frame_animation_speed   :  300, //frame animation time
-            win_animation_speed     :  500, //window animation time
+            win_animation_speed     :  300, //window animation time
             window_animation_type   : 'fade_in_top', //window animation type
             modal_close             : '.modal__window__close', //class buttons close
             fast_create             : true, //generate modal window elements
+            init_custom_func        : null, //user function
             active_custom_func      : null, //user function
             close_custom_func       : null, //user function
             window_style            : {}, //window inline styles
@@ -53,19 +54,6 @@
             /* this object */
             var $this = $(this);
 
-            /* generate modal ID */
-            function generate_id (min, max) {
-                return Math.floor(Math.random() * (max - min)) + min;
-            }
-
-            /* modal ID */
-            var index_class = '.fm_' + generate_id(135,1235000);
-
-            /* slice function */
-            function _sl(e) {
-                return e.slice(1);
-            }
-
             var this_attr_content = $this.attr('data-content_block');
 
             /* take content of attr or plugin option */
@@ -73,29 +61,49 @@
                 options.modal_content_block = this_attr_content;
             }
 
-            /* id match check  */
+            /* generate modal ID */
+            function generate_id (min, max) {
+                return Math.floor(Math.random() * (max - min)) + min;
+            }
+
+            /* slice function */
+            function _sl(e) {
+                return e.slice(1);
+            }
+
             var $content = $(options.modal_content_block);
 
-            var data_index = $content.attr('data-index');
+            /* element data  */
+            var fm = $.data($this, 'fit_modal', {
+                idClass: '.fm_' + generate_id(135,1235000), //modal ID
+                allContent: $content.parent().children(),
+                attrIndex: 'data-index',
+                blurClass: 'fit__blur',
+                activeClass: 'fit_modal_open',
+                loader: 'fit_modal__load'
+            });
+
+            /* id match check  */
+            var data_index = $content.attr(fm.attrIndex);
 
             if(data_index === undefined) {
-                $content.attr('data-index', _sl(index_class));
+                fm.allContent.attr(fm.attrIndex, _sl(fm.idClass));
             }
 
             /* take ID modal frame and window */
             function set_id (e) {
-                if($content.parents(e).length < 1){
-                    return $content.parents(e).addClass(_sl(index_class));
-                }else {
-                    index_class = '.' + data_index;
-                    return $content.parents(e).addClass(_sl(index_class));
+                if($content.parents(e).length > 0){
+                    fm.idClass = '.' + fm.allContent.first().attr(fm.attrIndex);
                 }
+
+                return $content.parents(e).addClass(_sl(fm.idClass));
             }
+
             set_id(options.modal_frame);
             set_id(options.modal_window);
 
-            options.modal_frame  += index_class;
-            options.modal_window += index_class;
+            options.modal_frame  += fm.idClass;
+            options.modal_window += fm.idClass;
 
             /* generate div to determine the scroll-bar size */
             var scroll_div = document.createElement("div");
@@ -118,17 +126,17 @@
 
             /* add class for element */
             function add_target (obj, target) {
-                $(obj + index_class).addClass(target);
+                $(obj + fm.idClass).addClass(target);
             }
 
             /* remove class for element */
             function remove_target (obj, target) {
-                $(obj + index_class).removeClass(target);
+                $(obj + fm.idClass).removeClass(target);
             }
 
             /* animation for element */
-            function modal_transition(obj ,animated) {
-                $(obj).css('transition', 'all ' + animated  + 'ms');
+            function modal_transition(obj, animated) {
+                $(fm.idClass).css('transition', 'all ' + animated  + 'ms');
             }
 
             /* blur function */
@@ -138,10 +146,10 @@
                 if(_blur !== null) {
                     if(value === 1 && value !== 'init') {
                         $blur.css('transition', 'all ' + options.frame_animation_speed  + 'ms');
-                        return $blur.addClass('fit__blur');
+                        return $blur.addClass(fm.blurClass);
                     }else {
                         $blur.removeAttr('style');
-                        return $blur.removeClass('fit__blur');
+                        return $blur.removeClass(fm.blurClass);
                     }
                 }
             }
@@ -156,7 +164,7 @@
             if(options.fast_create === true && $(options.modal_frame).length < 1) {
 
                 /* generate modal elements */
-                $($content)
+                $content
                     .wrapAll
                             (
                              '<div class="'+ _replace(options.modal_frame) +'">' +
@@ -201,6 +209,10 @@
                 options.window_style
             );
 
+            if(options.init_custom_func !== null) {
+                options.init_custom_func($this, fm);
+            }
+
             /* click event */
             $this.on('click on.modal.active', function (ev) {
                 ev.preventDefault();
@@ -225,8 +237,8 @@
                 /* animation speed for frame */
                 modal_transition(this_frame, options.frame_animation_speed);
 
-                add_target(options.modal_frame, 'fit_modal_open');
-                parent_html.addClass('fit_modal_open');
+                add_target(options.modal_frame, fm.activeClass);
+                parent_html.addClass(fm.activeClass);
 
                 /* imitation scroll bar for html */
                 parent_html.css('padding-right', sb_width_result);
@@ -241,7 +253,7 @@
 
                 /* open the modal window */
                 function open_init() {
-                    add_target (options.modal_window, 'fit_modal_open');
+                    add_target (options.modal_window, fm.activeClass);
                     modal_transition(this_window, options.win_animation_speed);
                     clearTimeout(_open);
                     $this.trigger('fm.onWindow');
@@ -256,7 +268,7 @@
 
                 /* active modal user function*/
                 if(options.active_custom_func !== null) {
-                    options.active_custom_func($this, index_class);
+                    options.active_custom_func($this, fm);
                 }
 
                 /* ajax mod */
@@ -272,7 +284,7 @@
                         fm_ajax.href = href_attr;
                     }
 
-                    var loader = 'fit_modal__load',  //pre-loader
+                    var loader = fm.loader,  //pre-loader
                         pre_loader = $('.' + loader);
 
                     /*Ajax request*/
@@ -297,7 +309,7 @@
                                  open_timeout();
                             });
                             if(fm_ajax.success_custom_func !== null) {
-                                fm_ajax.success_custom_func($this, returned);
+                                fm_ajax.success_custom_func($this, fm, returned);
                             }
                         },
                         error : function (err) {  //ajax error
@@ -307,7 +319,7 @@
 
                             /* ajax error user function */
                             if(fm_ajax.error_custom_func !== null) {
-                                fm_ajax.error_custom_func($this, err);
+                                fm_ajax.error_custom_func($this, fm, err);
                             }
                         }
                     });
@@ -322,11 +334,11 @@
 
             /* close modal function */
             function modal__close() {
-                remove_target (options.modal_window, 'fit_modal_open');
+                remove_target (options.modal_window, fm.activeClass);
 
                 function close_init() {
-                    remove_target (options.modal_frame, 'fit_modal_open');
-                    parent_html.removeClass('fit_modal_open').removeAttr('style');
+                    remove_target (options.modal_frame, fm.activeClass);
+                    parent_html.removeClass(fm.activeClass).removeAttr('style');
                     $(options.fix_fw_el + ',' + options.fix_right_el).removeAttr('style');
                     set_blur (0);
                     clearTimeout (_clear);
@@ -336,7 +348,7 @@
 
                 /* close modal user function */
                 if(options.close_custom_func !== null) {
-                    options.close_custom_func($this, index_class);
+                    options.close_custom_func($this, fm);
                 }
 
                 var _clear = setTimeout(close_init, options.win_animation_speed);
@@ -372,7 +384,7 @@
 
                        /* on responsive user function */
                        if(resp.on_custom !== undefined) {
-                           resp.on_custom($this);
+                           resp.on_custom($this, fm);
                        }
                    }else {
                        remove_target(options.modal_window, 'modal__responsive');
@@ -381,11 +393,11 @@
 
                        /* off responsive user function */
                        if(resp.off_custom !== undefined) {
-                           resp.off_custom($this);
+                           resp.off_custom($this, fm);
                        }
                    }
                     if(resp.custom_func !== undefined) {
-                        resp.custom_func($this);
+                        resp.custom_func($this, fm);
                     }
                 }
 
