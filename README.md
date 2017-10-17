@@ -1,7 +1,7 @@
 # jQuery.fit_modal
 
 #### EN
-[View documentation](https://philippzhulev.github.io/fitmodal/)
+[View documentation](https://philippzhulev.github.io/fit-modal/index.html)
 
 
 #### RU
@@ -9,7 +9,7 @@ _
 
 ### Адаптивное модальное окно для контента с возможностью ajax загрузки 
 
-[DEMO](https://philippzhulev.github.io/fitmodal/)
+[DEMO](https://philippzhulev.github.io/fit-modal/index.html)
 
 _
 
