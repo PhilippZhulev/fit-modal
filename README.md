@@ -463,11 +463,6 @@ npm install fit_modal
 ```
 Такой вариант активации позволяет запускать в одном модальном окне несколько типов контента с разными параметрами, что может быть полезно в некоторых ситуациях и существенно сокращает количество html кода на странице
 
- 
- Plans for the development of the plugin
- -
- + Ability to switch between modal windows (scrolling) with the built-in interface
- + Built-in image gallery mod
 
 #### Тип 3:
 
