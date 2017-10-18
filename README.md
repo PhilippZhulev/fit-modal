@@ -1,6 +1,6 @@
 # jQuery.fit_modal
 
-[![NPM version](https://img.shields.io/badge/npm-1.14.5-green.svg)](https://www.npmjs.com/package/fit_modal)
+[![NPM version](https://img.shields.io/badge/npm-1.14.6-green.svg)](https://www.npmjs.com/package/fit_modal)
 
 ## [EN](#english) | [RU](#russian)
 
