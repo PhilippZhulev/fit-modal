@@ -1,7 +1,7 @@
 {
   "name": "fit_modal",
   "description": "responsive + ajax content modal window.",
-  "version": "1.14.4",
+  "version": "1.14.5",
   "homepage": "https://philippzhulev.github.io/fit-modal/index.html",
   "main": "dist/jquery.fit_modal.js",
   "style": "dist/jquery.fit_modal.css",

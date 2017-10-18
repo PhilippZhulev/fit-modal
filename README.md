@@ -10,6 +10,8 @@ _
 ## Description
 fit_modal - is an adaptive modal window for content that has a large amount of settings and the ability to download content via ajax.
 
+**[DEMO](https://philippzhulev.github.io/fit-modal/index.html)**
+
 ## Benefits
 + Simple html structure
 + Three types of implementation in html
