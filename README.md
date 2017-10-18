@@ -1,10 +1,340 @@
 # jQuery.fit_modal
 
-#### EN
-[View documentation](https://philippzhulev.github.io/fit-modal/index.html)
+## [EN](#english) | [RU](#russian)
+
+## ENGLISH
+_
+
+### jQuery responsive modal window + download ajax content
+
+## Description
+fit_modal - is an adaptive modal window for content that has a large amount of settings and the ability to download content via ajax.
+
+## Benefits
++ Simple html structure
++ Three types of implementation in html
++ 33 options for full plug-in configuration
++ 6 events + 2 reverse events + custom functions
++ Wide range of applications
++ Multiple Animation Types
++ Easy customization of ajax capabilities
+
+## Get started
+
+**Node package manager:**
+```html
+npm install fit_modal
+```
+Connect: 
+
++ jquery.fit_modal.css 
++ jquery.fit_modal.js 
+
+or
+ 
++ jquery.fit_modal.min.css
++ jquery.fit_modal.min.js 
+from the folder dist 
+
+**Plugin requires:** 
++ normalize.css or reset.css
++ jQuery 1.8.3+ 
+
+#### default initialization
+```html
+<!--Activation button-->
+<button class="btn__active-modal" 
+    data-title="Feedback form" 
+    data-win-animation="fade_in_top" 
+    data-content_block=".content__wrap">
+    Open modal
+</button>
+
+<!--content block-->
+<div class="content__wrap">Hallo world!</div>
+
+<script>
+    $(window).ready(function () {
+        //Plugin init
+        $('.btn__active-modal').fit_modal();
+        
+    });
+</script>
+```
+
+Аттрибуты:
+ + **data-title** - Modal window title
+ + **data-win-animation** - Window Animation Type
+ + **data-content_block** - Content wrapper class
+ + **data-href** - Link to page or server (ajax)
+
+**Attributes take precedence over options!**
+
+#### Without automatic generation
+```html
+<!--Activation button-->
+<button class="btn__active-modal" data-content_block=".content__wrap_1">
+    Open modal №1
+</button>
+
+<button class="btn__active-modal" data-content_block=".content__wrap_2">
+    Open modal №2
+</button>
+
+<!--content block-->
+<div class="modal__frame">
+    <div class="modal__window">
+        <div class="modal__window__header">
+            <div class="modal__window__close"></div>
+            <div class="modal__window__title"></div>
+        </div>
+        <div class="modal__window__body">
+            <div class="content__wrap_1">Hallo world!</div>
+            <div class="content__wrap_2">I'm alive!</div>
+        </div>
+    </div>
+</div>
+
+<!--Plugin init-->
+<script>
+    $(window).ready(function () {
+        $('.btn__active-modal_1').fit_modal({
+            fast_create : false,
+            modal_title  :  'Hallo world!',
+        });
+
+        $('.btn__active-modal_2').fit_modal({
+            fast_create : false,
+            window_animation_type   : 'fade_in_left',
+            win_animation_speed     :  300, 
+            modal_title  :  "I'm alive!"
+        });
+    });
+</script>
+```
+This activation option allows you to run several types of content with different parameters in one modal window, which can be useful in some situations and significantly reduces the amount of html code on the page.
+
+_
+
+*Using this implementation method, you can use only one type of animation for all events.*
 
 
-#### RU
+
+ #### Ajax content download
+ ```html
+<!--Activation button-->
+
+<button class="btn__active-modal" data-href="test.html">
+    View document
+</button>
+
+
+<!--content block-->
+<div class="content__wrap_ajax"></div>
+
+<script>
+    $(window).ready(function () {
+        $('.btn__active-modal').fit_modal({
+            on_ajax_mod  :  true,
+            modal_content_block : 'content__wrap_ajax',
+            modal_title : 'View document',
+            window_animation_type  : 'fade_in_top'
+        });
+    });
+</script>
+ ```
+In this way, you can upload content via ajax    
+
+#### ajax_mod settings
+```javascript
+    $('element').fit_modal({
+        on_ajax_mod  :  true,
+        ajax_mod                : { //ajax options
+            href      :  null, //url
+            post_type :  'GET', //action type
+            data      :  null, //data type
+            error_message : "Server error or page not found.", //error message
+            success_custom_func : null, //user function
+            error_custom_func : null //user function
+        },
+    });
+```
+
+#### Responsive mod
+```javascript
+    $('element').fit_modal({
+        responsive_mod : {  
+            media : 1024, 
+            on_custom : null, 
+            off_custom : null, 
+            custom_func : null 
+        }
+    });
+```
+The media parameter specifies with which permission to run adaptivity (768px by default). 0 - Adaptivity is disabled. The remaining parameters are user-defined functions.
+
+
+#### Fast styling
++ frame_style - Background Style
++ window_style - Window Style
+
+```javascript
+    $('element').fit_modal({
+           window_style : {
+               "borderRadius" :  "15px",
+               "background" : "rgba(255, 255, 0, 0.68);"
+           },
+           frame_style : {
+               "background" : "rgba(110, 117, 142, 0.5)"
+           }, 
+    });
+```
+You can specify any css parameters.
+
+## Options
+
+
+Name                  | Default                | Description
+----------------------|------------------------|----------------------------
+modal_frame           | .modal__frame          | Class of the general wrapper (background) of the modal window
+modal_window          | .modal__window         | Modal window class
+modal_body            | .modal__window__body   | Modal window body class
+modal_title_class     | .modal__window__title  | Modal window title class
+modal_title           | Modal window           | Modal window title
+modal_content_block   | null                   | Content wrapper class          
+frame_animation_speed | 200                    | Background animation speed
+win_animation_speed   | 400                    | Window animation speed
+window_animation_type | fade_in_top            | Window Animation Type
+modal_close           | .modal__window__close  | Closure button class
+fast_create           | true                   | Generate modal window and wrap the content with it
+init_custom_func      | null                   | The user-defined function is activated when the initialization
+active_custom_func    | null                   | The user-defined function is activated when the window is turned on
+close_custom_func     | null                   | The user-defined function is activated when the window is closed
+window_style          | {}                     | Quickly set window styles
+frame_style           | {}                     | Quickly set background styles
+on_ajax_mod           | false                  | Enable Ajax Mod (Download external content)
+ajax_mod              | {options}              | Ajax options
+close_on_bg           | true                   | Close window by clicking on background
+responsive_mod        | {options}              | Adaptive Settings
+fix_fw_el             | null                   | Fixes bouncing fixed and absolute elements with 100% width (you need to add an element class) 
+fix_right_el          | null                   | Correction of fixed and absolute elements with right positioning (you need to add an element class)
+set_blur              | null                   | blur background elements 
+
+##### ajax_mod
+
+Name                  | Default                          | Description
+----------------------|----------------------------------|----------------------------
+href                  | null                             | Link to page or server
+post_type             | 'GET'                            | Request Type
+data                  | null                             | What should I transfer to the server
+error_message         | Server error or page not found.  | Error message
+success_custom_func   | null                             | Function on successful sending
+error_custom_func     | null                             | Function on error      
+
+##### responsive_mod
+
+Name                  | Default                | Description
+----------------------|------------------------|----------------------------------------
+media                 | 0                      | Resolution below which includes adaptivity
+on_custom             | null                   | Function when enabling adaptability
+off_custom            | null                   | Function when the adaptivity is turned off
+custom_fun            | null                   | Function when changing the resolution
+
+##### Animations
+
++ fade_in 
++ fade_in_top 
++ fade_in_down 
++ fade_in_left 
++ fade_in_right 
++ zoom_in
+
+##### Events
+
++ fm.onActive - When the modal window is activated
++ fm.onWindow - When the content area of the modal window appears
++ fm.onClose - When the modal window is closed
++ fm.onCloseFrame - When the modal window is completely closed
++ fm.onResponsive - When adaptivity is enabled
++ fm.offResponsive - When the adaptivity is turned off
+
+
+
+#### demonstration of the event
+```javascript
+   var this_modal = $('element').fit_modal();
+
+   this_modal.on('fm.onActive', function() {
+       console.log('wow!')
+   });
+```
+
+#### Custom function and reverse event
+
+**html**
+```html
+<form action="" class="test__form">
+    <input type="text" class="test__input">
+</form>
+<div class="no_elm"></div>
+
+
+<div class="demo-modal__us-func"></div>
+```
+**javaScript**
+```javascript
+    var user_modal = $('.no_elm').fit_modal({
+        modal_content_block : '.demo-modal__us-func',
+        modal_title : 'User modal',
+        window_animation_type  : 'fade_in_top',
+        active_custom_func : function (el, fn) {
+            $(this.modal_title_class).html(this.modal_title + ' - ' + fn.idClass.slice(1));
+            $(this.modal_content_block).html($('.test__input').val());
+            console.log(fn);
+        }
+    });
+    
+    $('.test__form').submit(function (e) {
+        e.preventDefault();
+        user_modal.trigger('on.modal.active');
+    });
+```
+An example of work can be seen in the demo
+
+
+Plans for the development of the plugin
+-
++ Ability to switch between modal windows (scrolling) with the built-in interface
++ Built-in image gallery mod
+
+## Build
+
+```html
+__dist     -->  Plug-in files
+__dist_src -->  Plug-in sources
+__docs     -->  Demo page files
+______Css           -->  Styles  (minify)
+______fonts         -->  Fonts     
+______Js            -->  javaScript (minify)
+______img           -->  Images
+__src      --> Demo page sources
+______components    -->  Components
+______js            -->  javaScript (not minify)
+______css           -->  css (not minify)
+______nib           -->  Functions for stylus
+______plugins       -->  Plu-ins
+
+```
+
+
+## License
+
+© Philipp Zhulev [MIT License](LICENSE).
+
+ _______________________________________________________________
+
+
+## RUSSIAN
 _
 
 ### Адаптивное модальное окно для контента с возможностью ajax загрузки 
@@ -34,7 +364,7 @@ _
 npm install fit_modal
 ```
 
-#####Подключаем:
+#### Подключаем:
 
 + jquery.fit_modal.css
 + jquery.fit_modal.js
@@ -67,7 +397,6 @@ npm install fit_modal
 
 <script>
     $(window).ready(function () {
-        
         //Plugin init
         $('.btn__active-modal').fit_modal();
         
@@ -88,11 +417,11 @@ npm install fit_modal
 #### Тип 2:
 
 ```html
-
 <!--Activation button-->
 <button class="btn__active-modal" data-content_block=".content__wrap_1">
     Open modal №1
 </button>
+
 <button class="btn__active-modal" data-content_block=".content__wrap_2">
     Open modal №2
 </button>
@@ -111,28 +440,30 @@ npm install fit_modal
     </div>
 </div>
 
+<!--Plugin init-->
 <script>
     $(window).ready(function () {
-        
-        //Plugin init
         $('.btn__active-modal_1').fit_modal({
             fast_create : false,
-            window_animation_type   : 'fade_in_top',
-            frame_animation_speed   :  400, 
             modal_title  :  'Hallo world!',
         });
+
         $('.btn__active-modal_2').fit_modal({
             fast_create : false,
             window_animation_type   : 'fade_in_left',
-            win_animation_speed     :  200, 
-            modal_title  :  "I'm alive!",
+            win_animation_speed     :  300, 
+            modal_title  :  "I'm alive!"
         });
     });
 </script>
-
 ```
 Такой вариант активации позволяет запускать в одном модальном окне несколько типов контента с разными параметрами, что может быть полезно в некоторых ситуациях и существенно сокращает количество html кода на странице
+
  
+ Plans for the development of the plugin
+ -
+ + Ability to switch between modal windows (scrolling) with the built-in interface
+ + Built-in image gallery mod
 
 #### Тип 3:
 
@@ -284,7 +615,7 @@ custom_fun            | null                   | Функция при смен�
         console.log('wow!')
     });
  ```
-#### Пользовательская функция
+##### Пользовательская функция
 ```javascript
      $('element').fit_modal({
         active_custom_func : function (el, fm) {
@@ -296,29 +627,43 @@ custom_fun            | null                   | Функция при смен�
  
 В примере мы вывели в консоль объект на который был произведен клик и произвольно сгенерированный индикатор модального окна в область контента.
  
-#### Обратное событие
+#### Обратное событие и пользовательская функция
 
+**html**
+```html
+<form action="" class="test__form">
+    <input type="text" class="test__input">
+</form>
+<div class="no_elm"></div>
+
+
+<div class="demo-modal__us-func"></div>
+```
+**javaScript**
 ```javascript
-    
-    var element = $('element').fit_modal({
-        modal_title : 'Hallo World!',
-        modal_content_block : '.content-block',
-        window_animation_type   : 'fade_in_top'
+    var user_modal = $('.no_elm').fit_modal({
+        modal_content_block : '.demo-modal__us-func',
+        modal_title : 'User modal',
+        window_animation_type  : 'fade_in_top',
+        active_custom_func : function (el, fn) {
+            $(this.modal_title_class).html(this.modal_title + ' - ' + fn.idClass.slice(1));
+            $(this.modal_content_block).html($('.test__input').val());
+            console.log(fn);
+        }
     });
     
-    function active_modal() {
-        return element.trigger('on.modal.active');
-    }
-    
-     setTimeout(active_modal, 5000);
+    $('.test__form').submit(function (e) {
+        e.preventDefault();
+        user_modal.trigger('on.modal.active');
+    });
 ```
-В данном примере мы активируем модальное окно на странице через 5 секунд после ее загрузки используя обратное событие **on.modal.active**
+Пример работы можно посмотреть в демо
 
-Обратное события
+**Обратное события**
 + on.modal.active - активация модального окна
 + on.modal.close - закрытие модального окна
 
-Планы по развитию плагина 
+### Планы по развитию плагина 
 --
 + Возможность переключения между модальными окнами (пролистывание) при помощи встроенного интерфейса
 + Встроенный мод галереи изображений
