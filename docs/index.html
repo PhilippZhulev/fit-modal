@@ -74,7 +74,7 @@
                 <div class="top-block__modal-view"></div>
                 <div class="top-block__modal-view"></div>
                 <div class="top-block__modal-view">
-                    <span>Hallo World!</span>
+                    <span>Hello World!</span>
                     <div class="top-block__eye eye__left"></div>
                     <div class="top-block__eye eye__right"></div>
                 </div>
@@ -116,7 +116,7 @@
                         </div>
                         <div class="col xs-7">
                             <div class="content__code__wrapper">
-                                <iframe width="100%" height="500" src="//jsfiddle.net/Philipp1918/c2eybd7d/8/embedded/html,result/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                                <iframe width="100%" height="500" src="//jsfiddle.net/c2eybd7d/10/embedded/html/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                             </div>
                         </div>
                     </div>
@@ -184,7 +184,7 @@
                                         <div class="modal__window__title"></div>
                                     </div>
                                     <div class="modal__window__body">
-                                        <div class="content__wrap_1">Hallo world!</div>
+                                        <div class="content__wrap_1">Hello world!</div>
                                         <div class="content__wrap_2">I'm alive!</div>
                                     </div>
                                 </div>
@@ -192,7 +192,7 @@
 
                         </div>
                         <div class="col xs-8">
-                            <iframe width="100%" height="450" src="//jsfiddle.net/Philipp1918/mwwzsrc3/2/embedded/html/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                            <iframe width="100%" height="450" src="//jsfiddle.net/mwwzsrc3/5/embedded/html/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                         </div>
                     </div>
                     <div class="row">
@@ -211,6 +211,42 @@
                         </div>
                         <div class="col xs-8">
                             <iframe width="100%" height="400" src="//jsfiddle.net/Philipp1918/uohLdb1y/embedded/js,html/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <br>
+                            <br>
+                            <h4>Several modal windows</h4>
+                        </div>
+                        <div class="col xs-4">
+                            <span><b class="text__blue">Description:</b></span> <br>
+                            <span>Multiple modal windows with one plugin connection.</span>
+                            <button class="modal__btn"
+                                    data-content_block=".multiple_content_1"
+                                    data-title="modal window #1"
+                                    data-win-animation="fade_in">
+                                    modal 1
+                            </button>
+                            <button class="modal__btn"
+                                    data-content_block=".multiple_content_2"
+                                    data-title="modal window #2"
+                                    data-win-animation="fade_in_right">
+                                    modal 2
+                            </button>
+                            <button class="modal__btn"
+                                    data-content_block=".multiple_content_3"
+                                    data-title="modal window #3"
+                                    data-win-animation="rotate">
+                                    modal 3
+                            </button>
+                        </div>
+
+                        <div class="multiple_content_1">Hello Friend!</div>
+                        <div class="multiple_content_2">How are you?</div>
+                        <div class="multiple_content_3">Are you here?</div>
+                        <div class="col xs-8">
+                            <iframe width="100%" height="400" src="//jsfiddle.net/m2sh9vmo/5/embedded/html/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                         </div>
                     </div>
                     <div class="row">
@@ -564,6 +600,7 @@
                                 <li>fade_in_left</li>
                                 <li>fade_in_right</li>
                                 <li>zoom_in</li>
+                                <li>rotate</li>
                             </ul>
                         </div>
                     </div>
@@ -573,7 +610,7 @@
                         <div class="col xs-4">
                             <span><b class="text__blue">Description:</b></span> <br>
                             <span>demonstration of the event</span> <br>
-                            <button class="btn__demo_4" data-content_block=".demo-modal__event" data-title="Look" data-win-animation="fade_in_down">Demo</button>
+                            <button class="btn__demo_4" data-content_block=".demo-modal__event" data-title="Look" data-win-animation="fade_in_left">Demo</button>
                             <div class="demo-modal__event">Look at the console!</div>
                         </div>
                         <div class="col xs-8">
@@ -753,6 +790,11 @@
                     responsive_mod : {
                         media : 1024
                     }
+                });
+
+                $('.modal__btn').fit_modal({
+                    fix_fw_el : '.header',
+                    fix_right_el : '.events__block',
                 });
 
                 $('.btn__demo_3').fit_modal({

@@ -1,6 +1,6 @@
 # jQuery.fit_modal
 
-[![NPM version](https://img.shields.io/badge/npm-1.14.6-green.svg)](https://www.npmjs.com/package/fit_modal)
+[![NPM version](https://img.shields.io/badge/npm-1.14.7-green.svg)](https://www.npmjs.com/package/fit_modal)
 
 ## [EN](#english) | [RU](#russian)
 
@@ -55,7 +55,7 @@ from the folder dist
 </button>
 
 <!--content block-->
-<div class="content__wrap">Hallo world!</div>
+<div class="content__wrap">Hello world!</div>
 
 <script>
     $(window).ready(function () {
@@ -77,43 +77,43 @@ from the folder dist
 #### Without automatic generation
 ```html
 <!--Activation button-->
-<button class="btn__active-modal" data-content_block=".content__wrap_1">
-    Open modal №1
+<button class="btn__demo_0" data-content_block=".content__wrap_1">
+  Open modal №1
 </button>
 
-<button class="btn__active-modal" data-content_block=".content__wrap_2">
-    Open modal №2
+<button class=".btn__demo_0_1" data-content_block=".content__wrap_2">
+  Open modal №2
 </button>
 
 <!--content block-->
 <div class="modal__frame">
-    <div class="modal__window">
-        <div class="modal__window__header">
-            <div class="modal__window__close"></div>
-            <div class="modal__window__title"></div>
-        </div>
-        <div class="modal__window__body">
-            <div class="content__wrap_1">Hallo world!</div>
-            <div class="content__wrap_2">I'm alive!</div>
-        </div>
+  <div class="modal__window">
+    <div class="modal__window__header">
+      <div class="modal__window__close"></div>
+      <div class="modal__window__title"></div>
     </div>
+    <div class="modal__window__body">
+      <div class="content__wrap_1">Hello world!</div>
+      <div class="content__wrap_2">I'm alive!</div>
+    </div>
+  </div>
 </div>
 
 <!--Plugin init-->
 <script>
-    $(window).ready(function () {
-        $('.btn__active-modal_1').fit_modal({
-            fast_create : false,
-            modal_title  :  'Hallo world!',
-        });
-
-        $('.btn__active-modal_2').fit_modal({
-            fast_create : false,
-            window_animation_type   : 'fade_in_left',
-            win_animation_speed     :  300, 
-            modal_title  :  "I'm alive!"
-        });
+  $(window).ready(function () {
+    $('.btn__demo_0').fit_modal({
+      fast_create : false,
+      window_animation_type   : 'zoom_in',
+      frame_animation_speed   :  300,
+      modal_title  :  'Modal 1!',
     });
+
+    $('.btn__demo_0_1').fit_modal({
+      fast_create : false,
+      modal_title  :  "Modal 2!",
+    });
+  });
 </script>
 ```
 This activation option allows you to run several types of content with different parameters in one modal window, which can be useful in some situations and significantly reduces the amount of html code on the page.
@@ -252,6 +252,7 @@ custom_fun            | null                   | Function when changing the reso
 + fade_in_left 
 + fade_in_right 
 + zoom_in
++ rotate
 
 ##### Events
 
@@ -397,7 +398,7 @@ npm install fit_modal
 </button>
 
 <!--content block-->
-<div class="content__wrap">Hallo world!</div>
+<div class="content__wrap">Hello world!</div>
 
 <script>
     $(window).ready(function () {
@@ -422,34 +423,50 @@ npm install fit_modal
 
 ```html
 <!--Activation button-->
-<button class="btn__active-modal" data-content_block=".content__wrap_1">
-    Open modal №1
+<button class="btn__demo_0" data-content_block=".content__wrap_1">
+  Open modal №1
 </button>
 
-<button class="btn__active-modal" data-content_block=".content__wrap_2">
-    Open modal №2
+<button class=".btn__demo_0_1" data-content_block=".content__wrap_2">
+  Open modal №2
 </button>
 
 <!--content block-->
 <div class="modal__frame">
-    <div class="modal__window">
-        <div class="modal__window__header">
-            <div class="modal__window__close"></div>
-            <div class="modal__window__title"></div>
-        </div>
-        <div class="modal__window__body">
-            <div class="content__wrap_1">Hallo world!</div>
-            <div class="content__wrap_2">I'm alive!</div>
-        </div>
+  <div class="modal__window">
+    <div class="modal__window__header">
+      <div class="modal__window__close"></div>
+      <div class="modal__window__title"></div>
     </div>
+    <div class="modal__window__body">
+      <div class="content__wrap_1">Hello world!</div>
+      <div class="content__wrap_2">I'm alive!</div>
+    </div>
+  </div>
 </div>
 
+<!--Plugin init-->
+<script>
+  $(window).ready(function () {
+    $('.btn__demo_0').fit_modal({
+      fast_create : false,
+      window_animation_type   : 'zoom_in',
+      frame_animation_speed   :  300,
+      modal_title  :  'Modal 1!',
+    });
+
+    $('.btn__demo_0_1').fit_modal({
+      fast_create : false,
+      modal_title  :  "Modal 2!",
+    });
+  });
+</script>
 <!--Plugin init-->
 <script>
     $(window).ready(function () {
         $('.btn__active-modal_1').fit_modal({
             fast_create : false,
-            modal_title  :  'Hallo world!',
+            modal_title  :  'Hello world!',
         });
 
         $('.btn__active-modal_2').fit_modal({
@@ -597,6 +614,7 @@ custom_fun            | null                   | Функция при смен�
 + fade_in_left - Плавное появление слева
 + fade_in_right - Плавное появление справа
 + zoom_in - Плавное увеличение
++ rotate - закручивание
 
 ##### События
 

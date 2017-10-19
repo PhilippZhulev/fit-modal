@@ -1,9 +1,9 @@
 /*************************
  Jquery fit_modal plugin
- Version: 1.12.0,
+ Version: 1.14.7,
  Developer: Philipp Zhulev,
  License: MIT License (MIT),
- Release date: 01.10.2017
+ Release date: 19.10.2017
  **************************/
 
 html.fit_modal_open
@@ -85,6 +85,12 @@ fadeOff()
             t-scale 0
             &.fit_modal_open
                 t-scale 1
+        &.fit_rotate
+            opacity 0
+            transform rotate(-360deg) scale(0)
+            &.fit_modal_open
+                transform rotate(0deg) scale(1)
+                opacity 1
         &__header
             border-bottom 1px solid #ccd2db
             padding-bottom 30px

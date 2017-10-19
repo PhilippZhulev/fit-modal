@@ -1312,6 +1312,7 @@ h2.text__green {
 .btn__demo_3,
 .btn__demo_4,
 .btn__gitHub,
+.modal__btn,
 .btn__download-bottom {
   border: 0;
   background: #2ab5ff;
@@ -1339,6 +1340,7 @@ h2.text__green {
 .btn__demo_3:hover,
 .btn__demo_4:hover,
 .btn__gitHub:hover,
+.modal__btn:hover,
 .btn__download-bottom:hover {
   background: #5186ff;
   border-bottom: 2px solid #4467ce;
@@ -1354,6 +1356,7 @@ h2.text__green {
 .btn__demo_1,
 .btn__demo_2,
 .btn__demo_3,
-.btn__demo_4 {
+.btn__demo_4,
+.modal__btn {
   margin: 20px 0 0 0;
 }

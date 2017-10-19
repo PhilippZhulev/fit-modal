@@ -1,6 +1,6 @@
 /*************************
  Jquery fit_modal plugin
- Version: 1.14.6,
+ Version: 1.14.7,
  Developer: Philipp Zhulev,
  License: MIT License (MIT),
  Release date: 19.10.2017
@@ -48,12 +48,19 @@
             set_blur     : null //Blur
         }, options);
 
+
+        var default_frame =  options.modal_frame,
+            default_window =  options.modal_window;
+
         /* plugin body */
         var include = function(){
 
             /* this object */
             var $this = $(this),
                 contClass = 'modal__content';
+
+            options.modal_frame = default_frame;
+            options.modal_window = default_window;
 
             var this_attr_content = $this.attr('data-content_block');
 
@@ -129,17 +136,17 @@
 
             /* add class for element */
             function add_target (obj, target) {
-                $(obj + fm.idClass).addClass(target);
+                return obj.addClass(target);
             }
 
             /* remove class for element */
             function remove_target (obj, target) {
-                $(obj + fm.idClass).removeClass(target);
+                return obj.removeClass(target);
             }
 
             /* animation for element */
             function modal_transition(obj, animated) {
-                obj.filter(fm.idClass).css('transition', 'all ' + animated  + 'ms');
+                return obj.css('transition', 'all ' + animated  + 'ms');
             }
 
             /* blur function */
@@ -169,19 +176,19 @@
                 /* generate modal elements */
                 $content
                     .wrapAll
-                            (
-                             '<div class="'+ _replace(options.modal_frame) +'">' +
-                             '<div class="'+ _replace(options.modal_window) +'">' +
-                             '<div class="'+ _replace(options.modal_body) +'">'
-                            )
+                    (
+                        '<div class="'+ _replace(options.modal_frame) +'">' +
+                        '<div class="'+ _replace(options.modal_window) +'">' +
+                        '<div class="'+ _replace(options.modal_body) +'">'
+                    )
                     .parents
-                        (options.modal_window).prepend
-                            (
-                             '<div class="modal__window__header">' +
-                                '<div class="'+ _replace(options.modal_close) +'"></div>' +
-                                '<div class="'+ _replace(options.modal_title_class) +'"></div>' +
-                             '</div>'
-                            )
+                    (options.modal_window).prepend
+                (
+                    '<div class="modal__window__header">' +
+                    '<div class="'+ _replace(options.modal_close) +'"></div>' +
+                    '<div class="'+ _replace(options.modal_title_class) +'"></div>' +
+                    '</div>'
+                )
                 ;
             }
 
@@ -206,7 +213,7 @@
             /* 1.Checking for the presence of an animation class.
                2.It "0" then adds */
             if(this_window.filter(fm.idClass).attr('class').indexOf("fit_") + 1 === 0) {
-                add_target (options.modal_window, animate_class);
+                add_target (this_window, animate_class);
             }
 
             /* frame user inline styles */
@@ -247,7 +254,7 @@
                 /* animation speed for frame */
                 modal_transition(this_frame, options.frame_animation_speed);
 
-                add_target(options.modal_frame, fm.activeClass);
+                add_target(this_frame, fm.activeClass);
                 parent_html.addClass(fm.activeClass);
 
                 /* imitation scroll bar for html */
@@ -263,7 +270,7 @@
 
                 /* open the modal window */
                 function open_init() {
-                    add_target (options.modal_window, fm.activeClass);
+                    add_target (this_window, fm.activeClass);
                     modal_transition(this_window, options.win_animation_speed);
                     clearTimeout(_open);
                     $this.trigger('fm.onWindow');
@@ -315,8 +322,8 @@
                             /* 2.delete pre-loader */
                             /* 3.open window */
                             $content.load(href_attr, function () {
-                                 pre_loader.remove();
-                                 open_timeout();
+                                pre_loader.remove();
+                                open_timeout();
                             });
                             if(fm_ajax.success_custom_func !== null) {
                                 fm_ajax.success_custom_func($this, fm, returned);
@@ -344,10 +351,10 @@
 
             /* close modal function */
             function modal__close() {
-                remove_target (options.modal_window, fm.activeClass);
+                remove_target (this_window, fm.activeClass);
 
                 function close_init() {
-                    remove_target (options.modal_frame, fm.activeClass);
+                    remove_target (this_frame, fm.activeClass);
                     parent_html.removeClass(fm.activeClass).removeAttr('style');
                     $(options.fix_fw_el + ',' + options.fix_right_el).removeAttr('style');
                     set_blur (0);
@@ -388,24 +395,24 @@
 
                 /* responsive function */
                 function set_responsive() {
-                   if($(window).width() < resp.media) {
-                       add_target(options.modal_window, 'modal__responsive');
-                       $this.trigger('fm.onResponsive'); //event
+                    if($(window).width() < resp.media) {
+                        add_target(options.modal_window, 'modal__responsive');
+                        $this.trigger('fm.onResponsive'); //event
 
-                       /* on responsive user function */
-                       if(resp.on_custom !== undefined) {
-                           resp.on_custom($this, fm);
-                       }
-                   }else {
-                       remove_target(options.modal_window, 'modal__responsive');
+                        /* on responsive user function */
+                        if(resp.on_custom !== undefined) {
+                            resp.on_custom($this, fm);
+                        }
+                    }else {
+                        remove_target(this_window, 'modal__responsive');
 
-                       $this.trigger('fm.offResponsive'); //event
+                        $this.trigger('fm.offResponsive'); //event
 
-                       /* off responsive user function */
-                       if(resp.off_custom !== undefined) {
-                           resp.off_custom($this, fm);
-                       }
-                   }
+                        /* off responsive user function */
+                        if(resp.off_custom !== undefined) {
+                            resp.off_custom($this, fm);
+                        }
+                    }
                     if(resp.custom_func !== undefined) {
                         resp.custom_func($this, fm);
                     }
