@@ -1,9 +1,9 @@
 /*************************
  Jquery fit_modal plugin
- Version: 1.12.0,
+ Version: 1.14.6,
  Developer: Philipp Zhulev,
  License: MIT License (MIT),
- Release date: 01.10.2017
+ Release date: 19.10.2017
  **************************/
 
 (function($){
