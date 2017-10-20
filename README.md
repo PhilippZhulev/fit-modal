@@ -18,7 +18,7 @@ fit_modal - is an adaptive modal window for content that has a large amount of s
 + Simple html structure
 + Three types of implementation in html
 + 33 options for full plug-in configuration
-+ 6 events + 2 reverse events + custom functions
++ 6 events + 4 reverse events + custom functions
 + Wide range of applications
 + Multiple Animation Types
 + Easy customization of ajax capabilities
@@ -306,6 +306,10 @@ custom_fun            | null                   | Function when changing the reso
 ```
 An example of work can be seen in the demo
 
++ on.modal.active - modal activation
++ on.modal.close - closing modal
++ on.win.active - window activation
++ on.win.close - closing window
 
 Plans for the development of the plugin
 -
@@ -355,7 +359,7 @@ _
     + полный html модального окна, 
     + загрузить контент через ajax (с использованием любого из двух предыдущих вариантов) 
 + 33 опции для полной настройки плагина
-+ 6 событий + 2 обратных события + пользовательские функции
++ 6 событий + 4 обратных события + пользовательские функции
 + Широкий спектр применения (по дефолту активироваться кликом по элементу, но также с легкостью можно повесить активацию на любое другое событие)
 + Несколько типов анимации появления а так же легкое создание и присвоение своих анимаций через css
 + Пользовательская настройка адаптивности
@@ -679,6 +683,8 @@ custom_fun            | null                   | Функция при смен�
 **Обратное события**
 + on.modal.active - активация модального окна
 + on.modal.close - закрытие модального окна
++ on.win.active - активация окна
++ on.win.close - Закрытие окна
 
 ### Планы по развитию плагина 
 --

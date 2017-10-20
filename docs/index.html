@@ -15,6 +15,7 @@
         <meta name=“robots” content=“index,follow”>
 
         <meta property="og:title" content="jquery fit_modal | jQuery responsive modal window + download ajax content">
+        <meta property="og:image" content="img/logo.png">
         <meta property="og:site_name" content="https://philippzhulev.github.io/fit-modal/index.html">
         <meta property="og:description" content="fit_modal - is an adaptive modal window for content that has a large amount of settings and the ability to download content via ajax.">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -112,7 +113,7 @@
                                 <li>Simple html structure</li>
                                 <li>Three types of implementation in html</li>
                                 <li>33 options for full plug-in configuration</li>
-                                <li>6 events + 2 reverse events + custom functions</li>
+                                <li>6 events + 4 reverse events + custom functions</li>
                                 <li>Wide range of applications</li>
                                 <li>Multiple Animation Types</li>
                                 <li>Easy customization of ajax capabilities</li>
@@ -251,6 +252,44 @@
                         <div class="multiple_content_3">Are you here?</div>
                         <div class="col xs-8">
                             <iframe width="100%" height="400" src="//jsfiddle.net/m2sh9vmo/5/embedded/html/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xs-12">
+                            <br>
+                            <br>
+                            <h4>Switching between modal windows.</h4>
+                        </div>
+                        <div class="col xs-4">
+                            <span><b class="text__blue">Description:</b></span> <br>
+                            <span>Way to switch between windows.</span>
+                            <button class="modal__two-modal"
+                                    data-content_block=".two-modal_content_1"
+                                    data-title="Switching between modal windows"
+                                    data-win-animation="fade_in_top">
+                                demo
+                            </button>
+                            <br>
+                            <span>Your can play and come up with other ways to implement.</span>
+                            <div class="modal__frame">
+                                <div class="modal__window">
+                                    <div class="modal__window__header">
+                                        <div class="modal__window__close"></div>
+                                        <div class="modal__window__title"></div>
+                                    </div>
+                                    <div class="modal__window__body">
+                                        <div class="two-modal_content_1">
+                                            Do you like to click?
+                                            <button class="go-next-modal">Yes!</button>
+                                        </div>
+                                        <div class="two-modal_content_2">I knew it!</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col xs-8">
+                            <iframe width="100%" height="400" src="//jsfiddle.net/Philipp1918/8Lpmwfej/embedded/html/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                         </div>
                     </div>
                     <div class="row">
@@ -613,7 +652,7 @@
                         <br>
                         <div class="col xs-4">
                             <span><b class="text__blue">Description:</b></span> <br>
-                            <span>demonstration of the event</span> <br>
+                            <span>Demonstration of the event</span> <br>
                             <button class="btn__demo_4" data-content_block=".demo-modal__event" data-title="Look" data-win-animation="fade_in_left">Demo</button>
                             <div class="demo-modal__event">Look at the console!</div>
                         </div>
@@ -637,8 +676,10 @@
                             <br>
                             <span><b class="text__blue">Reverse event:</b></span> <br>
                             <ul class="content__list">
-                                <li>on.modal.active - window activation</li>
-                                <li>on.modal.close - closing window</li>
+                                <li>on.modal.active - modal activation</li>
+                                <li>on.modal.close - closing modal</li>
+                                <li>on.win.active - window activation</li>
+                                <li>on.win.close - closing window</li>
                             </ul>
                         </div>
                         <div class="col xs-8">
@@ -681,7 +722,7 @@
                             </div>
                             <br>
                             <a href="https://github.com/PhilippZhulev/fit-modal/releases" >
-                                <button class="btn__download-bottom">Download v1.14</button>
+                                <button class="btn__download-bottom">Download v1.15</button>
                             </a>
                             <br>
                             <span class="content__text-center">Created by Philipp Zhulev</span>
@@ -799,6 +840,33 @@
                 $('.modal__btn').fit_modal({
                     fix_fw_el : '.header',
                     fix_right_el : '.events__block',
+                });
+
+                var fm_this;
+
+                var fmModal = $('.modal__two-modal').fit_modal({
+                    fast_create : false,
+                    fix_fw_el : '.header',
+                    fix_right_el : '.events__block',
+                    active_custom_func : function () {
+                        return fm_this = this;
+                    }
+                });
+
+                $('.go-next-modal').on('click', function () {
+
+                    fmModal.trigger('on.win.close');
+                    setTimeout(function () {
+
+                        var $content = $(fm_this.modal_content_block);
+
+                        $content.hide();
+                        $content.next().show();
+                        $(fm_this.modal_title_class).html('Hooray!');
+
+                        fmModal.trigger('on.win.active');
+
+                    }, fm_this.win_animation_speed)
                 });
 
                 $('.btn__demo_3').fit_modal({

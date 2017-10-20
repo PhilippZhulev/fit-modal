@@ -230,6 +230,13 @@
                 options.init_custom_func($this, fm);
             }
 
+            /* active window function */
+            function active_win() {
+                add_target (this_window, fm.activeClass);
+            }
+
+            $this.on('on.win.active', active_win);
+
             /* click event */
             $this.on('click on.modal.active', function (ev) {
                 ev.preventDefault();
@@ -270,7 +277,7 @@
 
                 /* open the modal window */
                 function open_init() {
-                    add_target (this_window, fm.activeClass);
+                    active_win();
                     modal_transition(this_window, options.win_animation_speed);
                     clearTimeout(_open);
                     $this.trigger('fm.onWindow');
@@ -349,9 +356,13 @@
                 return true
             });
 
+            function close_win() {
+                remove_target (this_window, fm.activeClass);
+            }
+
             /* close modal function */
             function modal__close() {
-                remove_target (this_window, fm.activeClass);
+                close_win();
 
                 function close_init() {
                     remove_target (this_frame, fm.activeClass);
@@ -372,6 +383,8 @@
 
                 $this.trigger('fm.onClose'); //event
             }
+
+            $this.on('on.win.close', close_win);
 
             /* close modal window by clicking on close-icon */
             $(options.modal_close).on('click on.modal.close', function () {

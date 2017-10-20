@@ -1073,28 +1073,6 @@ a:hover {
   padding: 15px;
   height: 70px;
 }
-.header__download__btn {
-  display: table-cell;
-  vertical-align: middle;
-  height: 30px;
-  text-decoration: none;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  background: #2ab5ff;
-  color: #fff;
-  padding: 0 30px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  transition: all 300ms ease-in-out;
-  -webkit-transition: all 300ms ease-in-out;
-  -moz-transition: all 300ms ease-in-out;
-  -o-transition: all 300ms ease-in-out;
-}
-.header__download__btn:hover {
-  background: #5186ff;
-  color: #fff;
-}
 .header__nav-bar ul {
   list-style: none;
   padding: 0;
@@ -1312,6 +1290,7 @@ h2.text__green {
 .btn__demo_3,
 .btn__demo_4,
 .btn__gitHub,
+.modal__two-modal,
 .modal__btn,
 .btn__download-bottom {
   border: 0;
@@ -1340,6 +1319,7 @@ h2.text__green {
 .btn__demo_3:hover,
 .btn__demo_4:hover,
 .btn__gitHub:hover,
+.modal__two-modal:hover,
 .modal__btn:hover,
 .btn__download-bottom:hover {
   background: #5186ff;
@@ -1354,9 +1334,39 @@ h2.text__green {
 .btn__demo_0,
 .btn__demo_0_1,
 .btn__demo_1,
+.modal__two-modal,
 .btn__demo_2,
 .btn__demo_3,
 .btn__demo_4,
 .modal__btn {
   margin: 20px 0 0 0;
+}
+.header__download__btn,
+.go-next-modal {
+  display: table-cell;
+  vertical-align: middle;
+  height: 30px;
+  text-decoration: none;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  background: #2ab5ff;
+  color: #fff;
+  padding: 0 30px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+}
+.header__download__btn:hover,
+.go-next-modal:hover {
+  background: #5186ff;
+  color: #fff;
+}
+.go-next-modal {
+  display: block;
+  margin-top: 30px;
+  border: 0;
 }
