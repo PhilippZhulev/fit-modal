@@ -233,6 +233,7 @@
             /* active window function */
             function active_win() {
                 add_target (this_window, fm.activeClass);
+                $this.trigger('fm.onWindow');
             }
 
             $this.on('on.win.active', active_win);
@@ -280,7 +281,6 @@
                     active_win();
                     modal_transition(this_window, options.win_animation_speed);
                     clearTimeout(_open);
-                    $this.trigger('fm.onWindow');
                 }
 
                 var _open;
@@ -358,6 +358,7 @@
 
             function close_win() {
                 remove_target (this_window, fm.activeClass);
+                $this.trigger('fm.onClose'); //event
             }
 
             /* close modal function */
@@ -380,8 +381,6 @@
                 }
 
                 var _clear = setTimeout(close_init, options.win_animation_speed);
-
-                $this.trigger('fm.onClose'); //event
             }
 
             $this.on('on.win.close', close_win);
