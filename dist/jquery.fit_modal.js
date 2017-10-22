@@ -1,9 +1,9 @@
 /*************************
  Jquery fit_modal plugin
- Version: 1.14.7,
+ Version: 1.15.31,
  Developer: Philipp Zhulev,
  License: MIT License (MIT),
- Release date: 19.10.2017
+ Release date: 22.10.2017
  **************************/
 
 (function($){
@@ -408,7 +408,7 @@
                 /* responsive function */
                 function set_responsive() {
                     if($(window).width() < resp.media) {
-                        add_target(options.modal_window, 'modal__responsive');
+                        add_target(this_window, 'modal__responsive');
                         $this.trigger('fm.onResponsive'); //event
 
                         /* on responsive user function */
