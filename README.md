@@ -66,7 +66,7 @@ from the folder dist
 </script>
 ```
 
-Аттрибуты:
+Attributes:
  + **data-title** - Modal window title
  + **data-win-animation** - Window Animation Type
  + **data-content_block** - Content wrapper class
