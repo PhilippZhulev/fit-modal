@@ -1,9 +1,9 @@
 /*************************
  Jquery fit_modal plugin
- Version: 1.15.31,
+ Version: 1.15.4,
  Developer: Philipp Zhulev,
  License: MIT License (MIT),
- Release date: 22.10.2017
+ Release date: 7.11.2017
  **************************/
 
 html.fit_modal_open
@@ -27,6 +27,8 @@ fadeOff()
     &frame
         position fixed
         overflow-y scroll
+        overflow-X hidden
+        will-change opacity;
         width 100%
         height 100%
         background rgba(0,0,0,0.5)
@@ -46,6 +48,7 @@ fadeOff()
         box-shadow 0 13px 18px 1px rgba(0,0,0,0.24)
         min-height 300px
         margin 5% auto 40px auto
+        will-change transform ;
         &.fit_fade_in
             fadeOff()
             &.fit_modal_open
@@ -117,3 +120,18 @@ fadeOff()
         margin 0 auto
 .fit__blur
     f_blur 3px
+.fit_modal__load
+    width 90px
+    height 90px
+    margin auto
+    top 0
+    bottom 0
+    left 0
+    border-radius 50%
+    right 0
+    position fixed
+    background rgb(255, 255, 255) url('preload.gif') center no-repeat;
+    background-size 100%
+    z-index 999
+    box-shadow 0 1px 1px rgba(0, 0, 0, 0.45)
+
